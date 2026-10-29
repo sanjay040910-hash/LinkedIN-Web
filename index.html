@@ -1,0 +1,723 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>LinkedIn Growth Partner | Ashwin</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Plus+Jakarta+Sans:wght@400;600;700;800&display=swap" rel="stylesheet" />
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+  body {
+    font-family: 'Inter', system-ui, -apple-system, sans-serif;
+    background: #f9f9fd;
+    color: #1a1c1f;
+    line-height: 1.5;
+    -webkit-font-smoothing: antialiased;
+  }
+  h1, h2, h3, h4, .display { font-family: 'Plus Jakarta Sans', 'Inter', sans-serif; }
+  a { color: inherit; text-decoration: none; }
+  img { max-width: 100%; display: block; }
+  button { font: inherit; cursor: pointer; border: none; background: none; }
+
+  .container { max-width: 1240px; margin: 0 auto; padding: 0 32px; width: 100%; }
+  .section { padding: 80px 20px; }
+  .section-border-top { border-top: 1px solid #e2e4e8; }
+  .section-border-bottom { border-bottom: 1px solid #e2e4e8; }
+
+  .eyebrow {
+    display: inline-block;
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    font-weight: 700;
+    font-size: 11px;
+    letter-spacing: 1.1px;
+    text-transform: uppercase;
+    color: #315fea;
+    margin-bottom: 16px;
+  }
+  .eyebrow-pill {
+    background: #ebf0ff;
+    padding: 4px 12px;
+    border-radius: 12px;
+    color: #315fea;
+    display: inline-block;
+    margin-bottom: 24px;
+  }
+  .h2 {
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    font-weight: 700;
+    font-size: 40px;
+    line-height: 48px;
+    letter-spacing: -1px;
+    color: #1a1c1f;
+    margin-bottom: 16px;
+  }
+  .lead { font-size: 18px; line-height: 30px; color: #575e70; letter-spacing: -0.18px; max-width: 672px; }
+
+  .btn {
+    display: inline-flex; align-items: center; justify-content: center;
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    font-weight: 600; font-size: 14px; letter-spacing: 0.14px;
+    padding: 14px 28px; border-radius: 4px; transition: opacity .15s, transform .15s;
+    text-align: center; white-space: nowrap;
+  }
+  .btn:hover { opacity: .92; }
+  .btn-primary { background: #0044d0; color: #fff; box-shadow: 0 1px 1px rgba(0,0,0,.05); }
+  .btn-outline { background: #fff; color: #1a1c1f; border: 1px solid #e2e4e8; padding: 15px 25px; }
+  .btn-block { width: 100%; }
+
+  /* HERO */
+  .hero { padding: 64px 52px 81px; background: #f9f9fd; border-bottom: 1px solid #e2e4e8; }
+  .hero-grid {
+    display: grid; grid-template-columns: repeat(12, minmax(0, 1fr));
+    gap: 40px; align-items: center; max-width: 1240px; margin: 0 auto;
+  }
+  .hero-left { grid-column: 1 / span 7; }
+  .hero h1 {
+    font-weight: 800; font-size: 64px; line-height: 69.12px; letter-spacing: -1.6px;
+    color: #1a1c1f; margin-bottom: 24px;
+  }
+  .hero-sub { font-size: 18px; line-height: 30px; color: #575e70; letter-spacing: -0.18px; max-width: 576px; margin-bottom: 32px; }
+  .hero-ctas { display: flex; gap: 16px; align-items: center; flex-wrap: wrap; margin-bottom: 16px; }
+  .hero-note { font-size: 13px; color: #696d75; }
+  .hero-right { grid-column: 8 / span 5; }
+
+  .profile-card {
+    position: relative; background: #fff; border: 1px solid #e2e4e8; border-radius: 16px;
+    padding: 25px; display: flex; flex-direction: column; gap: 8px; overflow: hidden;
+    box-shadow: 0 20px 25px -5px rgba(0,0,0,.08), 0 8px 10px -6px rgba(0,0,0,.08);
+  }
+  .profile-card::before {
+    content: ""; position: absolute; top: -64px; right: -64px; width: 224px; height: 224px;
+    background: rgba(0,68,208,.1); border-radius: 50%; filter: blur(64px); pointer-events: none;
+  }
+  .profile-head {
+    display: flex; justify-content: space-between; align-items: flex-start;
+    padding-bottom: 21px; border-bottom: 1px solid #e2e4e8; position: relative;
+  }
+  .profile-id { display: flex; gap: 12px; align-items: center; }
+  .avatar {
+    width: 56px; height: 56px; border-radius: 12px; border: 2px solid #fff;
+    background: linear-gradient(135deg, #0044d0, #315fea);
+    color: #fff; font-family: 'Plus Jakarta Sans', sans-serif; font-weight: 700; font-size: 20px;
+    display: flex; align-items: center; justify-content: center;
+    box-shadow: 0 1px 2px rgba(0,0,0,.05);
+  }
+  .profile-name { font-family: 'Plus Jakarta Sans', sans-serif; font-weight: 700; font-size: 20px; letter-spacing: -0.3px; color: #1a1c1f; }
+  .top-voice {
+    background: #ebf0ff; color: #0044d0; font-weight: 600; font-size: 10px;
+    letter-spacing: .5px; text-transform: uppercase; padding: 2px 8px; border-radius: 2px; margin-left: 6px;
+  }
+  .profile-role { font-size: 12px; color: #575e70; }
+  .profile-tag { font-size: 11px; color: #868a93; font-weight: 500; }
+  .profile-badge { color: #868a93; font-size: 18px; }
+
+  .stats-ticker {
+    background: rgba(243,243,247,.6); border-bottom: 1px solid #e2e4e8; border-radius: 4px;
+    display: grid; grid-template-columns: repeat(3, 1fr); padding: 16px 12px 17px; position: relative;
+  }
+  .stat { padding: 0 9px; }
+  .stat + .stat { border-left: 1px solid #e2e4e8; }
+  .stat-label { font-size: 10px; font-weight: 600; letter-spacing: .5px; text-transform: uppercase; color: #575e70; }
+  .stat-value { font-family: 'Plus Jakarta Sans', sans-serif; font-weight: 700; font-size: 14px; color: #17191c; letter-spacing: .14px; }
+  .stat-value.green { color: #16a34a; font-size: 10px; font-family: 'Inter', sans-serif; font-weight: 500; }
+
+  .post-card { padding: 16px 0 0; position: relative; }
+  .post-title { font-size: 11px; font-weight: 600; color: #575e70; text-transform: uppercase; letter-spacing: .5px; margin-bottom: 8px; }
+  .post-meta { font-size: 11px; color: #868a93; margin-bottom: 8px; }
+  .post-body { font-size: 13px; line-height: 20px; color: #1a1c1f; }
+  .post-footer { display: flex; gap: 12px; font-size: 11px; color: #868a93; margin-top: 12px; }
+  .post-cta {
+    margin-top: 12px; background: #1a1c1f; color: #fff; text-align: center;
+    padding: 10px; border-radius: 4px; font-size: 12px; font-weight: 600;
+  }
+
+  /* ACHIEVEMENTS */
+  .stats-grid {
+    display: grid; grid-template-columns: repeat(3, 1fr); gap: 0;
+    border: 1px solid #e2e4e8; border-radius: 8px; background: #fff; overflow: hidden; margin-top: 56px;
+  }
+  .stats-grid > div { padding: 32px; border-right: 1px solid #e2e4e8; border-bottom: 1px solid #e2e4e8; }
+  .stats-grid > div:nth-child(3n) { border-right: none; }
+  .stats-grid > div:nth-last-child(-n+3) { border-bottom: none; }
+  .big-num { font-family: 'Plus Jakarta Sans', sans-serif; font-weight: 800; font-size: 40px; color: #0044d0; letter-spacing: -1px; }
+  .big-label { font-size: 14px; color: #1a1c1f; font-weight: 600; margin-top: 6px; }
+  .big-sub { font-size: 13px; color: #868a93; margin-top: 4px; }
+
+  .quote-band {
+    margin-top: 40px; background: #fff; border: 1px solid #e2e4e8; border-radius: 8px;
+    padding: 32px; text-align: center;
+  }
+  .quote-band p { font-family: 'Plus Jakarta Sans', sans-serif; font-size: 20px; font-weight: 600; color: #1a1c1f; line-height: 1.5; }
+  .verified { margin-top: 16px; font-size: 12px; font-weight: 600; color: #315fea; letter-spacing: .6px; text-transform: uppercase; }
+
+  /* SERVICES */
+  .pillars { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; margin-top: 8px; }
+  .pillar {
+    background: #fff; border: 1px solid #e2e4e8; border-radius: 12px; padding: 32px;
+    display: flex; flex-direction: column; gap: 16px;
+  }
+  .pillar-num { font-size: 11px; font-weight: 700; letter-spacing: 1px; color: #315fea; text-transform: uppercase; }
+  .pillar h3 { font-size: 22px; font-weight: 700; letter-spacing: -.4px; }
+  .pillar p { font-size: 15px; color: #575e70; line-height: 24px; }
+  .pillar ul { list-style: none; display: flex; flex-direction: column; gap: 10px; border-top: 1px solid #e2e4e8; padding-top: 16px; }
+  .pillar li { font-size: 14px; color: #1a1c1f; display: flex; gap: 10px; align-items: flex-start; }
+  .pillar li::before { content: "✓"; color: #0044d0; font-weight: 700; }
+  .pillar-link { margin-top: auto; font-weight: 600; font-size: 14px; color: #0044d0; }
+
+  .clarity {
+    margin-top: 72px; display: grid; grid-template-columns: repeat(12, minmax(0,1fr));
+    gap: 40px; align-items: center;
+  }
+  .clarity-left { grid-column: 1 / span 7; }
+  .clarity-left h2 { font-size: 40px; line-height: 48px; letter-spacing: -1px; margin-bottom: 16px; font-weight: 700; font-family: 'Plus Jakarta Sans', sans-serif; }
+  .clarity-left p { font-size: 17px; line-height: 28px; color: #575e70; margin-bottom: 24px; }
+  .clarity-points { display: flex; flex-direction: column; gap: 12px; margin-bottom: 16px; }
+  .clarity-points div { font-size: 15px; color: #1a1c1f; display: flex; gap: 10px; }
+  .clarity-points div::before { content: "→"; color: #0044d0; font-weight: 700; }
+  .clarity-quote { font-size: 15px; font-style: italic; color: #575e70; margin-top: 8px; }
+
+  .booking {
+    grid-column: 8 / span 5; background: #1f2937; border: 1px solid rgba(55,65,81,.6);
+    border-radius: 8px; padding: 33px; position: relative;
+    box-shadow: 0 20px 25px -5px rgba(0,0,0,.1), 0 8px 10px -6px rgba(0,0,0,.1);
+    display: flex; flex-direction: column; gap: 16px;
+  }
+  .booking-top { display: flex; justify-content: space-between; align-items: center; }
+  .booking-label { font-size: 12px; font-weight: 600; letter-spacing: .6px; text-transform: uppercase; color: #9ca3af; }
+  .booking-tag {
+    background: rgba(49,95,234,.2); color: #60a5fa; font-size: 12px; font-weight: 600;
+    padding: 4px 10px; border-radius: 2px;
+  }
+  .booking h3 { font-family: 'Plus Jakarta Sans', sans-serif; font-weight: 700; font-size: 20px; color: #fff; letter-spacing: -.3px; }
+  .booking-desc { font-size: 12px; line-height: 16px; color: #9ca3af; padding-bottom: 16px; }
+  .price-row { display: flex; gap: 8px; align-items: baseline; padding-bottom: 25px; border-bottom: 1px solid #374151; }
+  .price { font-family: 'Inter', sans-serif; font-weight: 600; font-size: 36px; color: #fff; letter-spacing: -.9px; }
+  .price-unit { font-size: 14px; color: #9ca3af; font-weight: 500; }
+  .booking-list { display: flex; flex-direction: column; gap: 8px; padding-top: 16px; }
+  .booking-list div { font-size: 12px; color: #d1d5db; display: flex; gap: 8px; }
+  .booking-list div::before { content: "✓"; color: #60a5fa; font-weight: 700; }
+  .booking .btn-primary { background: #0044d0; margin-top: 12px; }
+  .booking-foot { font-size: 11px; color: #9ca3af; text-align: center; }
+
+  /* LEAD GEN / FORM */
+  .leadgen { padding: 81px 52px 80px; background: #f9f9fd; border-top: 1px solid #e2e4e8; }
+  .leadgen-grid {
+    display: grid; grid-template-columns: repeat(12, minmax(0,1fr)); gap: 40px;
+    max-width: 1240px; margin: 0 auto; align-items: start;
+  }
+  .leadgen-left { grid-column: 1 / span 5; padding-top: 8px; }
+  .leadgen-left h2 { font-family: 'Plus Jakarta Sans', sans-serif; font-weight: 700; font-size: 40px; line-height: 48px; letter-spacing: -1px; margin-bottom: 16px; }
+  .leadgen-left > p { font-size: 16px; line-height: 26px; color: #575e70; margin-bottom: 32px; }
+  .point { display: flex; gap: 14px; margin-bottom: 22px; }
+  .point-icon {
+    flex: 0 0 36px; height: 36px; border-radius: 8px; background: #ebf0ff; color: #0044d0;
+    display: flex; align-items: center; justify-content: center; font-weight: 700;
+  }
+  .point h4 { font-size: 15px; font-weight: 700; margin-bottom: 4px; }
+  .point p { font-size: 14px; color: #575e70; line-height: 22px; }
+  .direct {
+    margin-top: 12px; padding: 16px; background: #fff; border: 1px solid #e2e4e8; border-radius: 8px;
+    font-size: 14px; color: #575e70;
+  }
+  .direct strong { color: #1a1c1f; }
+
+  .form-card {
+    grid-column: 6 / span 7; background: #fff; border: 1px solid #e2e4e8; border-radius: 8px;
+    padding: 40px; box-shadow: 0 1px 1px rgba(0,0,0,.05);
+  }
+  .form-card h3 { font-family: 'Plus Jakarta Sans', sans-serif; font-weight: 700; font-size: 24px; letter-spacing: -.4px; margin-bottom: 6px; }
+  .form-card > p { font-size: 14px; color: #575e70; margin-bottom: 28px; }
+  .field { display: flex; flex-direction: column; gap: 6px; margin-bottom: 20px; }
+  .field label { font-family: 'Plus Jakarta Sans', sans-serif; font-weight: 600; font-size: 12px; letter-spacing: .12px; color: #1a1c1f; }
+  .field input {
+    height: 44px; padding: 13px; border: 1px solid #e2e4e8; border-radius: 2px;
+    font: inherit; font-size: 14px; color: #1a1c1f; background: #fff; width: 100%;
+  }
+  .field input::placeholder { color: #868a93; }
+  .field input:focus { outline: 2px solid rgba(0,68,208,.25); border-color: #0044d0; }
+  .row-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+  .form-submit { width: 100%; margin-top: 8px; padding: 16px; font-size: 15px; }
+  .form-submit:disabled { opacity: .6; cursor: not-allowed; }
+  .form-note { font-size: 12px; color: #868a93; text-align: center; margin-top: 14px; }
+  .form-status { margin-top: 16px; padding: 12px 16px; border-radius: 4px; font-size: 14px; display: none; }
+  .form-status.success { display: block; background: #ecfdf5; color: #166534; border: 1px solid #bbf7d0; }
+  .form-status.error { display: block; background: #fef2f2; color: #991b1b; border: 1px solid #fecaca; }
+
+  /* TESTIMONIALS */
+  .testimonials { background: #f9f9fd; }
+  .testi-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; margin-top: 56px; }
+  .testi {
+    background: #fff; border: 1px solid #e2e4e8; border-radius: 12px; padding: 32px;
+    display: flex; flex-direction: column; gap: 24px;
+  }
+  .testi blockquote { font-size: 15px; line-height: 26px; color: #1a1c1f; flex: 1; }
+  .testi-author { display: flex; gap: 12px; align-items: center; border-top: 1px solid #e2e4e8; padding-top: 16px; }
+  .testi-avatar {
+    width: 40px; height: 40px; border-radius: 50%; background: #ebf0ff; color: #0044d0;
+    display: flex; align-items: center; justify-content: center; font-weight: 700; font-size: 14px;
+  }
+  .testi-name { font-weight: 700; font-size: 14px; font-family: 'Plus Jakarta Sans', sans-serif; }
+  .testi-role { font-size: 12px; color: #575e70; }
+  .testi-foot { text-align: center; margin-top: 48px; font-size: 16px; color: #575e70; font-style: italic; }
+
+  /* FAQ */
+  .faq-list { margin-top: 48px; max-width: 880px; margin-left: auto; margin-right: auto; display: flex; flex-direction: column; gap: 12px; }
+  .faq-item { background: #fff; border: 1px solid #e2e4e8; border-radius: 8px; overflow: hidden; }
+  .faq-q {
+    width: 100%; text-align: left; padding: 20px 24px; display: flex; justify-content: space-between; align-items: center;
+    font-family: 'Plus Jakarta Sans', sans-serif; font-weight: 600; font-size: 16px; color: #1a1c1f;
+  }
+  .faq-q .chev { transition: transform .2s; color: #868a93; font-size: 18px; }
+  .faq-item.open .faq-q .chev { transform: rotate(180deg); }
+  .faq-a { display: none; padding: 0 24px 20px; font-size: 15px; line-height: 26px; color: #575e70; }
+  .faq-item.open .faq-a { display: block; }
+
+  /* FINAL CTA */
+  .final-cta { background: #111827; color: #fff; padding: 97px 20px 96px; border-top: 1px solid #1f2937; text-align: center; }
+  .final-cta .eyebrow { color: #60a5fa; }
+  .final-cta h2 {
+    font-family: 'Plus Jakarta Sans', sans-serif; font-weight: 800; font-size: 48px; line-height: 56px;
+    letter-spacing: -1.2px; color: #fff; max-width: 800px; margin: 0 auto 20px;
+  }
+  .final-cta p { font-size: 17px; line-height: 28px; color: #9ca3af; max-width: 620px; margin: 0 auto 36px; }
+  .final-actions { display: flex; gap: 16px; justify-content: center; flex-wrap: wrap; }
+  .final-cta .btn-primary { background: #0044d0; }
+  .final-cta .btn-ghost { background: transparent; color: #fff; border: 1px solid #374151; padding: 15px 25px; }
+  .final-contact { margin-top: 32px; font-size: 14px; color: #9ca3af; }
+  .final-contact a { color: #60a5fa; }
+
+  footer { background: #111827; border-top: 1px solid #1f2937; color: #6b7280; text-align: center; padding: 24px; font-size: 13px; }
+
+  /* RESPONSIVE */
+  @media (max-width: 1024px) {
+    .hero h1 { font-size: 52px; line-height: 58px; }
+    .pillars { grid-template-columns: 1fr; }
+    .stats-grid { grid-template-columns: 1fr 1fr; }
+    .stats-grid > div:nth-child(3n) { border-right: 1px solid #e2e4e8; }
+    .stats-grid > div:nth-child(2n) { border-right: none; }
+    .stats-grid > div:nth-last-child(-n+3) { border-bottom: 1px solid #e2e4e8; }
+    .stats-grid > div:nth-last-child(-n+2) { border-bottom: none; }
+    .testi-grid { grid-template-columns: 1fr; }
+    .hero-left, .hero-right, .clarity-left, .booking, .leadgen-left, .form-card { grid-column: 1 / -1; }
+  }
+  @media (max-width: 768px) {
+    .container { padding: 0 20px; }
+    .hero { padding: 40px 20px 56px; }
+    .hero h1 { font-size: 40px; line-height: 46px; letter-spacing: -1px; }
+    .hero-sub { font-size: 16px; line-height: 26px; }
+    .h2, .clarity-left h2, .leadgen-left h2 { font-size: 30px; line-height: 38px; }
+    .final-cta h2 { font-size: 34px; line-height: 42px; }
+    .section { padding: 56px 20px; }
+    .leadgen { padding: 56px 20px; }
+    .stats-grid { grid-template-columns: 1fr; }
+    .stats-grid > div { border-right: none !important; border-bottom: 1px solid #e2e4e8 !important; }
+    .stats-grid > div:last-child { border-bottom: none !important; }
+    .form-card { padding: 24px; }
+    .row-2 { grid-template-columns: 1fr; }
+    .stats-ticker { grid-template-columns: 1fr; gap: 12px; }
+    .stat + .stat { border-left: none; border-top: 1px solid #e2e4e8; padding-top: 12px; }
+    .hero-ctas .btn { width: 100%; }
+    .final-actions .btn { width: 100%; }
+  }
+</style>
+</head>
+<body>
+
+<!-- SECTION 1: HERO -->
+<section class="hero" id="top">
+  <div class="hero-grid">
+    <div class="hero-left">
+      <span class="eyebrow eyebrow-pill">YOUR LINKEDIN GROWTH PARTNER</span>
+      <h1>From Scrolling on LinkedIn to Being the Name People Remember.</h1>
+      <p class="hero-sub">You have the expertise. You have the experience. Now, let's make sure the right people see it. I help founders, professionals, and personal brands build a stronger LinkedIn presence through smart strategy, compelling content, and consistent management.</p>
+      <div class="hero-ctas">
+        <a class="btn btn-primary" href="#contact">Let's Build Your LinkedIn Presence</a>
+        <a class="btn btn-outline" href="https://payments.cashfree.com/forms/getaudit" target="_blank" rel="noopener">Book a LinkedIn Audit</a>
+      </div>
+      <p class="hero-note">You focus on what you do best. I'll help you show up, stand out, and grow.</p>
+    </div>
+
+    <div class="hero-right">
+      <div class="profile-card">
+        <div class="profile-head">
+          <div class="profile-id">
+            <div class="avatar">A</div>
+            <div>
+              <div style="display:flex;align-items:center;gap:6px;">
+                <span class="profile-name">Ashwin</span>
+                <span class="top-voice">TOP VOICE</span>
+              </div>
+              <div class="profile-role">LinkedIn Executive Growth Partner</div>
+              <div class="profile-tag">Helping B2B founders turn expertise into pipeline</div>
+            </div>
+          </div>
+          <span class="profile-badge">in</span>
+        </div>
+
+        <div class="stats-ticker">
+          <div class="stat">
+            <div class="stat-label">30D Views</div>
+            <div class="stat-value">+248%</div>
+            <div class="stat-value green">▲ 94.2k</div>
+          </div>
+          <div class="stat">
+            <div class="stat-label">Impressions</div>
+            <div class="stat-value">1.4M+</div>
+            <div class="stat-value green">Top 1% Rank</div>
+          </div>
+          <div class="stat">
+            <div class="stat-label">Inbounds</div>
+            <div class="stat-value">38/mo</div>
+            <div class="stat-value green">Qualified Leads</div>
+          </div>
+        </div>
+
+        <div class="post-card">
+          <div class="post-title">Recent Strategic Post Blueprint</div>
+          <div class="post-meta">2d • Edited</div>
+          <p class="post-body">Most founders treat LinkedIn like a megaphone. They shout product features into a void and wonder why engagement flatlines. The top 1% treat LinkedIn like a high-table dinner:…</p>
+          <div class="post-footer">
+            <span>428</span><span>112 comments</span><span>•</span><span>84 reposts</span>
+          </div>
+          <div class="post-cta">Accepting 2 new executive advisory clients → Apply</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SECTION 2: ACHIEVEMENT & CREDIBILITY -->
+<section class="section">
+  <div class="container">
+    <span class="eyebrow">THE WORK SPEAKS</span>
+    <h2 class="h2">Your Expertise Deserves More Visibility.</h2>
+    <p class="lead">LinkedIn growth isn't just about posting more. It's about showing up with the right message, reaching the right audience, and building trust over time.</p>
+
+    <div class="stats-grid">
+      <div>
+        <div class="big-num">120+</div>
+        <div class="big-label">Professionals &amp; personal brands supported</div>
+        <div class="big-sub">Founders, C-suite &amp; partners</div>
+      </div>
+      <div>
+        <div class="big-num">2,400+</div>
+        <div class="big-label">Content pieces strategized &amp; scripted</div>
+        <div class="big-sub">Tailored to exact executive voice</div>
+      </div>
+      <div>
+        <div class="big-num">310%</div>
+        <div class="big-label">Avg. growth in relevant profile metrics</div>
+        <div class="big-sub">Across views, reach &amp; followers</div>
+      </div>
+      <div>
+        <div class="big-num">18</div>
+        <div class="big-label">Industries and specialized niches served</div>
+        <div class="big-sub">SaaS, Venture, Legal &amp; Advisory</div>
+      </div>
+    </div>
+
+    <div class="quote-band">
+      <p>“Behind every number is a clearer brand, a stronger voice, and a more intentional presence.”</p>
+      <div class="verified">Verified Client Performance</div>
+    </div>
+  </div>
+</section>
+
+<!-- SECTION 3: SERVICES & CLARITY AUDIT OFFER -->
+<section class="section section-border-top" style="background:#f9f9fd;">
+  <div class="container">
+    <span class="eyebrow">HOW WE CAN WORK TOGETHER</span>
+    <h2 class="h2">Your LinkedIn Presence, With a Strategy Behind It.</h2>
+    <p class="lead">From figuring out what to say to showing up consistently, get the strategic support you need to build a LinkedIn presence that feels authentic and works toward your goals.</p>
+
+    <div class="pillars" style="margin-top:56px;">
+      <div class="pillar">
+        <div class="pillar-num">PILLAR 01</div>
+        <h3>Strategy and Positioning</h3>
+        <p>Build a clear personal brand, define your audience, and create a content direction that reflects what you want to be known for.</p>
+        <ul>
+          <li>Personal narrative architecture</li>
+          <li>Target ICP audience profiling</li>
+          <li>Profile conversion optimization</li>
+        </ul>
+        <div class="pillar-link">Explore Strategy Scope →</div>
+      </div>
+      <div class="pillar">
+        <div class="pillar-num">PILLAR 02</div>
+        <h3>Content and Scripting</h3>
+        <p>Turn your knowledge, experiences, and ideas into thoughtful LinkedIn posts that sound like you and connect with the people you want to reach.</p>
+        <ul>
+          <li>Ghostwritten executive posts &amp; carousels</li>
+          <li>Voice calibration &amp; weekly cadence</li>
+          <li>Data-backed hooks &amp; storytelling models</li>
+        </ul>
+        <div class="pillar-link">Explore Scripting Scope →</div>
+      </div>
+      <div class="pillar">
+        <div class="pillar-num">PILLAR 03</div>
+        <h3>Consistent Management</h3>
+        <p>Bring strategy and execution together with planned content, a consistent publishing rhythm, and ongoing support for your LinkedIn presence.</p>
+        <ul>
+          <li>End-to-end publishing schedule management</li>
+          <li>Comment curation &amp; high-value network engagement</li>
+          <li>Monthly quantitative analytics &amp; review</li>
+        </ul>
+        <div class="pillar-link">Explore Full Management →</div>
+      </div>
+    </div>
+
+    <div class="clarity">
+      <div class="clarity-left">
+        <span class="eyebrow">THE LINKEDIN CLARITY SESSION</span>
+        <h2>Stop Guessing. Start Growing With a Plan.</h2>
+        <p>Sometimes, you don't need someone to manage everything for you. You just need an expert eye, an honest assessment, and a clear direction.</p>
+        <div class="clarity-points">
+          <div>Profile review and positioning feedback</div>
+          <div>Personal brand clarity &amp; key differentiation</div>
+          <div>Get clarity on what to improve and what to focus on next</div>
+        </div>
+        <p class="clarity-quote">“One focused session. Honest feedback. A clearer path forward.”</p>
+      </div>
+
+      <div class="booking">
+        <div class="booking-top">
+          <span class="booking-label">Session Type</span>
+          <span class="booking-tag">60-Minute Intensive</span>
+        </div>
+        <h3>One-on-One LinkedIn Audit</h3>
+        <p class="booking-desc">Conducted live over video with screen sharing and direct strategic teardown.</p>
+        <div class="price-row">
+          <span class="price">$450</span>
+          <span class="price-unit">USD / single session</span>
+        </div>
+        <div class="booking-list">
+          <div>Live 60-min call + full session recording</div>
+          <div>Written audit summary document (PDF)</div>
+          <div>7-day asynchronous follow-up Q&amp;A</div>
+        </div>
+        <a class="btn btn-primary btn-block" href="https://payments.cashfree.com/forms/getaudit" target="_blank" rel="noopener">Book Your Audit Session</a>
+        <p class="booking-foot">Get clarity on what to improve and what to focus on next.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SECTION 4: LEAD GENERATION & INTAKE FORM -->
+<section class="leadgen section-border-top" id="contact">
+  <div class="leadgen-grid">
+    <div class="leadgen-left">
+      <span class="eyebrow">LET'S TALK ABOUT YOUR GROWTH</span>
+      <h2>Ready to Make LinkedIn Work for You?</h2>
+      <p>Whether you're starting from scratch or struggling to get results from your current content, let's figure out what your LinkedIn presence needs.</p>
+
+      <div class="point">
+        <div class="point-icon">✓</div>
+        <div>
+          <h4>A strategy aligned with your goals.</h4>
+          <p>No generic advice. Every recommendation maps directly to real pipeline.</p>
+        </div>
+      </div>
+      <div class="point">
+        <div class="point-icon">✓</div>
+        <div>
+          <h4>Content that reflects your voice.</h4>
+          <p>No cookie-cutter templates or cringe viral threads that dilute reputation.</p>
+        </div>
+      </div>
+      <div class="point">
+        <div class="point-icon">✓</div>
+        <div>
+          <h4>A clearer path toward meaningful growth.</h4>
+          <p>Establish true authority and turn high-intent profile views into inbound conversations.</p>
+        </div>
+      </div>
+
+      <div class="direct">
+        <strong>Direct Strategic Evaluation</strong><br />
+        Ashwin personally reviews every inquiry within 24 hours.
+      </div>
+    </div>
+
+    <div class="form-card">
+      <h3>Tell Me a Little About Yourself</h3>
+      <p>Share your details below to schedule an initial consultation or request the audit.</p>
+
+      <form id="intakeForm" novalidate>
+        <div class="field">
+          <label for="name">Full Name *</label>
+          <input id="name" name="name" type="text" placeholder="Alex Miller" autocomplete="name" required />
+        </div>
+        <div class="field">
+          <label for="email">Work Email *</label>
+          <input id="email" name="email" type="email" placeholder="alex@company.com" autocomplete="email" required />
+        </div>
+        <div class="field">
+          <label for="phone">Phone Number *</label>
+          <input id="phone" name="phone" type="tel" placeholder="+91 98765 43210" autocomplete="tel" required />
+        </div>
+
+        <button type="submit" id="submitBtn" class="btn btn-primary form-submit">Let's Talk Growth</button>
+        <div id="formStatus" class="form-status" role="status" aria-live="polite"></div>
+      </form>
+
+      <p class="form-note">Your details will only be used to respond to your enquiry. No spam, ever.</p>
+    </div>
+  </div>
+</section>
+
+<!-- SECTION 5: TESTIMONIALS & SOCIAL PROOF -->
+<section class="section testimonials section-border-top">
+  <div class="container">
+    <span class="eyebrow">WORDS FROM THE PEOPLE I'VE WORKED WITH</span>
+    <h2 class="h2">Good Work Is Better When the Results Speak for Themselves.</h2>
+    <p class="lead">Every brand has a different starting point. Here's what clients have to say about their experience working together.</p>
+
+    <div class="testi-grid">
+      <div class="testi">
+        <blockquote>“Ashwin transformed how I talk about our B2B tech startup on LinkedIn. In under 90 days, inbound investor interest and client DM inquiries tripled. His team captured my exact cadence.”</blockquote>
+        <div class="testi-author">
+          <div class="testi-avatar">SJ</div>
+          <div><div class="testi-name">Sarah Jenkins</div><div class="testi-role">Founder &amp; CEO at LatticePoint</div></div>
+        </div>
+      </div>
+      <div class="testi">
+        <blockquote>“Before working together, posting felt like shouting into an empty canyon. With Ashwin's strategy and ghostwriting, my posts now consistently drive qualified consulting leads every single week.”</blockquote>
+        <div class="testi-author">
+          <div class="testi-avatar">MV</div>
+          <div><div class="testi-name">Marcus Vance</div><div class="testi-role">Principal Consultant, Enterprise AI</div></div>
+        </div>
+      </div>
+      <div class="testi">
+        <blockquote>“The LinkedIn Audit alone gave me more clarity than six months of trial and error. The ongoing scripting package is the highest ROI investment I've made for personal brand visibility.”</blockquote>
+        <div class="testi-author">
+          <div class="testi-avatar">ER</div>
+          <div><div class="testi-name">Elena Rostova</div><div class="testi-role">Series A Fintech Co-Founder</div></div>
+        </div>
+      </div>
+    </div>
+
+    <p class="testi-foot">The best partnerships help you communicate your value with more clarity and confidence.</p>
+  </div>
+</section>
+
+<!-- SECTION 6: FAQ ACCORDION -->
+<section class="section section-border-top" style="background:#f9f9fd;">
+  <div class="container">
+    <div style="text-align:center;">
+      <span class="eyebrow">GOOD QUESTIONS</span>
+      <h2 class="h2">Everything You Need to Know Before Getting Started.</h2>
+      <p class="lead" style="margin:0 auto;">Clear answers about how we partner, what you can expect, and whether this is the right fit for your goals.</p>
+    </div>
+
+    <div class="faq-list">
+      <div class="faq-item open">
+        <button class="faq-q" type="button">Who are your LinkedIn services for? <span class="chev">▾</span></button>
+        <div class="faq-a">My services are specifically designed for founders, B2B executives, consultants, and leaders who have deep domain expertise but lack the time or strategic blueprint to turn that knowledge into consistent visibility, authority, and inbound opportunities on LinkedIn.</div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" type="button">Can you help me if I'm starting from zero? <span class="chev">▾</span></button>
+        <div class="faq-a">Yes. Whether you are building a profile from scratch or refining an existing one, the strategy starts with your positioning and goals.</div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" type="button">What do your LinkedIn services include? <span class="chev">▾</span></button>
+        <div class="faq-a">Services cover three pillars: strategy and positioning, content and scripting, and consistent management, with the scope tailored to your needs.</div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" type="button">Do I need to write the content myself? <span class="chev">▾</span></button>
+        <div class="faq-a">No. Content can be ghostwritten and scripted around your knowledge and experiences, and calibrated to your voice.</div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" type="button">How soon can I expect results? <span class="chev">▾</span></button>
+        <div class="faq-a">Results vary by starting point and consistency. Progress is tracked through monthly analytics and reviews.</div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" type="button">What if I only need guidance instead of full management? <span class="chev">▾</span></button>
+        <div class="faq-a">The LinkedIn Clarity Session is a single focused call with an honest assessment and a clear direction, without ongoing management.</div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" type="button">Will the content sound like me? <span class="chev">▾</span></button>
+        <div class="faq-a">Voice calibration is part of the process, so content reflects your tone, perspective, and experience.</div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" type="button">How do we get started? <span class="chev">▾</span></button>
+        <div class="faq-a">Book an audit or send the intake form above. Ashwin personally reviews every inquiry within 24 hours.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SECTION 7: FINAL CTA (NOCTURNAL NAVY) -->
+<section class="final-cta">
+  <div class="container">
+    <h2>Your Next Opportunity Could Start With a Better LinkedIn Presence.</h2>
+    <p>Let's build a personal brand that communicates your value, earns trust, and helps the right people discover your work.</p>
+    <div class="final-actions">
+      <a class="btn btn-primary" href="#contact">Let's Build Something Meaningful</a>
+      <a class="btn btn-ghost" href="https://payments.cashfree.com/forms/getaudit" target="_blank" rel="noopener">Book a LinkedIn Audit</a>
+    </div>
+    <p class="final-contact">Have questions? Get in touch.</p>
+  </div>
+</section>
+
+<footer>© Ashwin · LinkedIn Growth Partner</footer>
+
+<script>
+  // Apps Script web app URL (deployed)
+  var SCRIPT_URL = "https://script.google.com/macros/s/AKfycbxdTfua_ComPv-3JH3HlabCm52v_4gC61txQx2RhWy19IVWob7m1lyQjslFM67jWvM8mg/exec";
+
+  // FAQ accordion
+  document.querySelectorAll('.faq-q').forEach(function (btn) {
+    btn.addEventListener('click', function () {
+      btn.parentElement.classList.toggle('open');
+    });
+  });
+
+  var form = document.getElementById('intakeForm');
+  var submitBtn = document.getElementById('submitBtn');
+  var statusEl = document.getElementById('formStatus');
+
+  function showSuccess() {
+    statusEl.className = 'form-status success';
+    statusEl.textContent = 'Thank you! Your details have been received. Ashwin will be in touch within 24 hours.';
+    form.reset();
+    submitBtn.disabled = false;
+    submitBtn.textContent = "Let's Talk Growth";
+  }
+
+  function showError() {
+    statusEl.className = 'form-status error';
+    statusEl.textContent = 'Something went wrong. Please try again in a moment.';
+    submitBtn.disabled = false;
+    submitBtn.textContent = "Let's Talk Growth";
+  }
+
+  form.addEventListener('submit', function (e) {
+    e.preventDefault();
+
+    var name = document.getElementById('name').value.trim();
+    var email = document.getElementById('email').value.trim();
+    var phone = document.getElementById('phone').value.trim();
+
+    if (!name || !email || !phone) {
+      statusEl.className = 'form-status error';
+      statusEl.textContent = 'Please fill in your name, email, and phone number.';
+      return;
+    }
+
+    submitBtn.disabled = true;
+    submitBtn.textContent = 'Sending…';
+    statusEl.className = 'form-status';
+    statusEl.textContent = '';
+
+    var url = SCRIPT_URL + "?" + new URLSearchParams({ name: name, email: email, phone: phone });
+
+    fetch(url, { method: "GET", mode: "no-cors" })
+      .then(() => showSuccess())
+      .catch(() => showError());
+  });
+</script>
+</body>
+</html>
